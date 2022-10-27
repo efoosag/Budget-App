@@ -1,2 +1,10 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="d-flex flex-column justify-content-center min-vh-100 border align-items-center">
+  <h1 class="finanz">BUDGETORY</h1>
+
+  <div class="text-center border-secondary">
+    <%= link_to "Log in", new_user_session_path, class: "btn btn-primary w-100 fs-5" %>
+    <p>Are you a new user? 
+    <%= link_to "Sign up", new_user_registration_path %>
+    </p>    
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container d-flex flex-column justify-content-center align-items-center">
+  <div class="budget-header w-100">
+    <h1>
+      <%= link_to user_group_budgets_path(current_user, @group) do %>
+        <i class="fa fa-arrow-left" aria-hidden="true" style="color: #3778c2; padding-left: 22px"> </i>
+      <% end %>
+    </h1>
+  </div>
+  <div class="card w-100 d-flex justify-content-center align-items-center  p-3 shadow p-3 mb-5 bg-body rounded">
+    <h2 class="budget-title">Create New Tranasction</h2>
+    <%= form_with model: @budget, url: user_group_budgets_path(current_user, @group), method: :post, scope: :budget,  class: 'd-flex flex-column  col-md-5 justify-content-center align-items-center' do |f| %> 
+      <div class="input-group p-2 mb-3">
+        <%= f.label :name, class: "input-group-text" %><br />
+        <%= f.text_field :name,  autofocus: true, autocomplete: "name", class: 'form-control' %>
+      </div>
+
+      <div class="input-group p-2 mb-3">
+        <%= f.label :amount, class: "input-group-text" %><br />
+        <%= f.number_field :amount, class: 'form-control' %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Save Transaction", class: 'btn btn-primary'%>
+      </div>
+    <% end %>
+  </div>
+</div>
