@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
-  # get 'home/index'
   devise_for :users
-  get '/users/sign_up' => 'devise/registrations#new'
-  root 'home#index'
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+    authenticated :user do
+      root 'groups#index', as: :authenticated_root
+    end
+
+    unauthenticated do
+      root 'home#index', as: :unauthenticated_root
+    end
+  end
+
+  resources :users do
+    resources :groups do
+      resources :budgets
+    end
+  end
 end
