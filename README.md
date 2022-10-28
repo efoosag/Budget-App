@@ -10,8 +10,8 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link]()
-[Video Link]()
+[Live Demo Link](https://victor-budget-app.herokuapp.com/)
+[Video Link](https://www.loom.com/share/6f5a878ea4d64a178c62a7e1a36f06b7)
 
 ### Install & Setup
 
