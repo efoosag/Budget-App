@@ -18,7 +18,7 @@
               </div>
                 <div class="d-flex flex-column justify-content-between align-items-between gap-10">
                   <span class="each-group-amount">Total Budget: $<%= group.budgets.sum(&:amount) %></span>
-                  <%= button_to "Delete Group", user_group_path(current_user, group), method: :delete, class: 'btn btn-secondary p-2' %>
+                  <%= button_to "Delete Group", user_group_path(current_user, group), method: :delete, class: 'btn btn-danger p-2' %>
                 </div>
             </div>
           </div>
@@ -26,11 +26,11 @@
       </div>
       <% end %>
   <% else %>
-    <span class="d-flex justify-content-center align-items-center shadow p-3 mb-5 bg-body rounded p-5">You have no categories click Add Category to continue</span>
+    <span class="d-flex justify-content-center align-items-center shadow p-3 mb-5 bg-body rounded p-5"> click Add A Category to continue</span>
   <% end %>
   <div class='add-group-btn'>
     <div class='group-btn shadow p-3 mb-5 rounded'>
-      <%= link_to "Add Category", new_user_group_path(current_user), class: 'new-group-btn text-light' %>
+      <%= link_to "Add Category", new_user_group_path(current_user), class: 'new-group-btn text-dark' %>
     </div>
   </div>
 </div>

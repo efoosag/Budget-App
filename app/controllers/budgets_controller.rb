@@ -17,7 +17,7 @@ class BudgetsController < ApplicationController
     if @budget.valid?
       @budget.save
       @budget.groups.push(@group)
-      flash[:notice] = 'New group Created Successfully'
+      flash[:notice] = 'New Budget Successfully Created'
       redirect_to user_group_budgets_path
     else
       render :new
