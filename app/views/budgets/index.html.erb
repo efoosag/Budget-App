@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="budget-header">
+    <h1> <%= link_to user_groups_path do %>
+      <i class="fa fa-arrow-left" aria-hidden="true" style="color: #3778c2; padding-left: 22px"> </i>
+      <% end %>
+      </h1>
+  </div>
+  <h2 class="d-flex justify-content-center align-items-center budget-title">Transactions</h2>
+  <% if @budgets.count > 0 %>
+    <div class="card p-4">
+      <div class="budget-total">
+        <h3>Total Amount Budget:</h3>
+        <h3> <%= number_to_currency(@budgets.sum(&:amount)) %> </h3>
+      </div>
+      <div class="card-body">
+        <div class="d-flex ms-5 mb-3 gap-5 align-items-center">
+        <img src="<%= @group.icon %>", width="50", height="50", alt="group_icon" class: "card-img">
+        <h2> <%= @group.name %></h2>
+        </div>
+        <% @budgets.each do |budget|%>
+          <%= render budget %>
+        <% end %>
+      </div>
+    <% else %>
+      <span class="d-flex justify-content-center align-items-center shadow p-3 mb-5 bg-body rounded p-5" >You have no Transactions click Add Transaction to continue</span>
+    <% end %>
+    <div class='add-group-btn'>
+      <div class='group-btn shadow p-3 mb-5 rounded'>
+        <%= link_to "Add Transaction", new_user_group_budget_path(current_user, @group.id), class: 'new-group-btn text-dark' %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,14 +3,59 @@
   <head>
     <title>BudgetApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
   </head>
 
   <body>
+  <nav class="navbar navbar-expand-md bg-primary">
+    <div class="container-fluid">
+      <div class="nav-logo">        
+        <h2><span class="bud align-items-center">MY PERSONAL BUDGET</span></h2>
+      </div>
+      <button class="navbar-toggler btn btn-outline-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <% if user_signed_in? %>
+          <li class="nav-item"> 
+              <span class="nav-link me-5 text-light"><i class="fa fa-user me-2"></i><%= current_user.name %></span>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-sm btn-outline-warning mt-2' %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'Sign Up', new_user_session_path, class: 'nav-link text-light' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign In', new_user_session_path, class: 'nav-link text-light' %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class='container'>
+    <% if notice %>
+      <p class="alert alert-info position-absolute top-10 start-50 translate-middle" role="alert">
+        <%= notice %>
+        <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+      </p>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-warning mt-4 position-absolute top-10 start-50 translate-middle" role="alert">
+        <%= alert %>
+        <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <% end %>
     <%= yield %>
+  </div>
+      
+    <script src="https://kit.fontawesome.com/b331332bf9.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>
