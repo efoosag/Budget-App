@@ -41,5 +41,5 @@ class BudgetsController < ApplicationController
 
   def fetch_group
     @group = Group.find(params[:group_id])
-  end   
+  end
 end
