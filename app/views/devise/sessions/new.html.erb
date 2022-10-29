@@ -30,6 +30,7 @@
   </nav>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <br/>
   <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control block w-full px-3 py-1.5 mb-6 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none", placeholder: "Email address" %>
     <%= f.password_field :password, autocomplete: "current-password", class: "form-control block w-full px-3 py-1.5 mb-6 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none", placeholder: "Password" %>
 
