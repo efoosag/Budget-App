@@ -1,15 +1,37 @@
-<h2>Log in</h2>
+<nav class="container-fluid navbar navbar-expand-md bg-primary">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+    <div></div>
+      <div class="nav-logo">        
+        <h2><span class="bud">LOGIN</span></h2>
+      </div>
+      <button class="navbar-toggler btn btn-outline-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <% if user_signed_in? %>
+          <li class="nav-item"> 
+              <span class="nav-link me-5 text-light"><i class="fa fa-user me-2"></i><%= current_user.name %></span>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-sm btn-outline-warning mt-2' %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'Sign Up', new_user_session_path, class: 'nav-link text-light' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign In', new_user_session_path, class: 'nav-link text-light' %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field mb-2">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field mb-2">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control block w-full px-3 py-1.5 mb-6 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none", placeholder: "Email address" %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "form-control block w-full px-3 py-1.5 mb-6 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none", placeholder: "Password" %>
 
   <% if devise_mapping.rememberable? %>
     <div class="field mb-2">
