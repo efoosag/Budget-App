@@ -1,24 +1,68 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Budget App
 
-Things you may want to cover:
+> This Budget app help to plan the use anticipate income based on the users needs.
 
-* Ruby version
+## Major Technologies
+- [ ] Ruby on Rails
+- [ ] Postgresql
+- [ ] Boostrap
 
-* System dependencies
+## Live Demo (if available)
 
-* Configuration
+[Live Demo Link](https://victor-budget-app.herokuapp.com/)
+[Video Link](https://www.loom.com/share/6f5a878ea4d64a178c62a7e1a36f06b7)
 
-* Database creation
+### Install & Setup
 
-* Database initialization
+To setup and install this sample AlFa Blog project, follow the below steps:
+- Clone this project by the command: 
+  ```
+  git clone https://github.com/efoosag/budget-app
+  ```
 
-* How to run the test suite
+- Then switch to the project folder by the below query:
 
-* Services (job queues, cache servers, search engines, etc.)
+  ```
+  cd budget-app
+  ```
 
-* Deployment instructions
+- Install the required dependecies with:
+  ```
+  bundle install
+  ```
+- Install npm dependencies with: 
+  ```
+  npm install
+  ```
+- Before running below commands update [config/database.yml](./config/database.yml) with your local `DB`credentials. Then run:
+    ```
+    rake db:create
+    ```
+    ```
+    rake db:migrate
+    ```
 
-* ...
+### Prerequisites
+
+- IDE to edit and run the code (We use Visual Studio Code 🔥).
+- Git to versionning your work.
+- Postgresql
+
+👤 **Victor**
+
+- GitHub: [@efoosag](https://github.com/efoosag)
+- Twitter: [@Victor Osagie](https://www.twitter.com/Victorosagie08)
+- LinkedIn: [@VictorOsagie](https://www.linkedin.com/in/victor-osagie-a713ba22b/)
+
+
+## 🤝 Contributing
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+- Original design idea by [Gregoire Vella on Behance](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=)
